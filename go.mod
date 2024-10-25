@@ -1,4 +1,4 @@
-module github.com/antlr4-go/antlr/v4
+module github.com/zeloikoo/antlr/v4
 
 go 1.22
 
