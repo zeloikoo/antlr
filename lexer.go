@@ -25,6 +25,8 @@ type Lexer interface {
 	PushMode(int)
 	PopMode() int
 	SetType(int)
+	GetModeStack() IntStack
+	GetMode() int
 	SetMode(int)
 }
 
@@ -251,6 +253,14 @@ func (b *BaseLexer) More() {
 // will be in force.
 func (b *BaseLexer) SetMode(m int) {
 	b.mode = m
+}
+
+func (b *BaseLexer) GetModeStack() IntStack {
+	return b.modeStack
+}
+
+func (b *BaseLexer) GetMode() int {
+	return b.mode
 }
 
 // PushMode saves the current lexer mode so that it can be restored later. See [PopMode], then sets the

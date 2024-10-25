@@ -211,3 +211,29 @@ func (c *CommonToken) clone() *CommonToken {
 	t.text = c.GetText()
 	return t
 }
+
+
+func NewCommonTokenFromToken(oldToken Token) *CommonToken {
+	t := NewCommonToken(oldToken.GetSource(), oldToken.GetTokenType(), oldToken.GetChannel(), oldToken.GetStart(), oldToken.GetStop())
+	t.tokenIndex = oldToken.GetTokenIndex()
+	t.line = oldToken.GetLine()
+	t.column = oldToken.GetColumn()
+	t.text = oldToken.GetText()
+	return t
+}
+
+func (c *CommonToken) SetChannel(channel int) {
+	c.channel = channel
+}
+
+func (c *CommonToken) SetStop(stop int) {
+	c.stop = stop
+}
+
+func (c *CommonToken) SetText(text string) {
+	c.text = text
+}
+
+func (c *CommonToken) SetTokenType(ttype int) {
+	c.tokenType = ttype
+}
